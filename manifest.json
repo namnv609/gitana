@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+
+    "name": "Gitana",
+    "description": "Add link to Asana task for Github",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "assets/img/icon.png",
+        "default_popup": "popup.html",
+        "default_title": "Gitana - Add link to Asana task for Github"
+    },
+
+    "permissions": [
+        "activeTab",
+        "https://github.com/"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": ["https://github.com/*"],
+            "js": [
+                "assets/js/jquery.min.js",
+                "assets/js/gitana.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
